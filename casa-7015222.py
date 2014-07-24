@@ -70,8 +70,9 @@ BROKE_VERSION = '2.11.3-17.62.1'
 
 if( SUSE.packageInstalled(PACKAGE_NAME) ):
         INFO = SUSE.getRpmInfo(PACKAGE_NAME)
-#       print "INFO = " + str(INFO)
-        if( INFO['version'] == BROKE_VERSION ):
+#        print "INFO = " + str(INFO)
+#        if( INFO['version'] == BROKE_VERSION ):
+        if( INFO['version'] == BROKE_VERSION and FIXED_VERSION > INFO['version']):
                 if( missingCASACredentials() ):
                         Core.updateStatus(Core.CRIT, "CASA credentials missing")
                 else:
